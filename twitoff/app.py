@@ -15,12 +15,18 @@ def create_app():
     @app.route('/')
     def root():
         users = User.query.all()
-        return render_template('base.html', title='Home', users=users)
+        return render_template('home.html', users=users)
 
     @app.route('/reset')
     def reset():
         DB.drop_all()
         DB.create_all()
-        return render_template('base.html', title='DB Reset!', users=[])
+        return render_template('reset.html')
+
+    @app.route('/user/<name>')
+    def user(name=None):
+        user = User.query.filter_by(name=name).first()
+        return render_template('user.html', 
+                                user=user)
 
     return app
