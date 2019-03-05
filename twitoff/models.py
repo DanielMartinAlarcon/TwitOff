@@ -20,4 +20,4 @@ class Tweet(DB.Model):
     user = DB.relationship('User', backref=DB.backref('tweets', lazy=True))
 
     def __repr__(self):
-        return f'<Tweet {self.text} by user {self.user}>'
+        return f'<Tweet {self.text} by {self.user}>'
