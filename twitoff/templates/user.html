@@ -4,6 +4,6 @@
 <h1>{{ user.name }}</h1>
 
 {% for tweet in user.tweets %}
-<p>{{tweet.id }}: {{ tweet.text }}</p>
+<p>{{ tweet.text }}</p>
 {% endfor %}
 {% endblock content %}
