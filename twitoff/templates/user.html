@@ -1,9 +1,14 @@
 {% extends "base.html" %}
-{% block title %}User page{% endblock title%}
 {% block content %}
-<h1>{{ user.name }}</h1>
 
-{% for tweet in user.tweets %}
-<p>{{ tweet.text }}</p>
-{% endfor %}
-{% endblock content %}
+<h2>User: {{ title }}</h2>
+
+<p>{{ message }}</p>
+
+<ul>
+    {% for tweet in tweets %}
+    <li>{{ tweet.id }} - {{ tweet.text }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
