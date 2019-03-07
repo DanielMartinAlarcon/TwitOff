@@ -21,7 +21,7 @@ def create_app():
     def reset():
         DB.drop_all()
         DB.create_all()
-        return render_template('reset.html')
+        return render_template('base.html')
 
 
     @app.route('/compare', methods=['POST'])
