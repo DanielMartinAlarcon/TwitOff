@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
-<h2>User comparison</h2>
-
-<p>{{ prob_user_1 }}% chance that was said by {{ user_1 }}</p>
-<p>{{ prob_user_2 }}% chance that was said by {{ user_2 }}</p>
-
+<p>Who was most likely to tweet that?</p>
+<h3>{{ user_1 }}: {{ prob_user_1 }}%</h3>
+<h3>{{ user_2 }}: {{ prob_user_2 }}%</h3>
 {% endblock %}

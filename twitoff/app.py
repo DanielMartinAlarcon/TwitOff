@@ -15,13 +15,13 @@ def create_app():
     @app.route('/')
     def root():
         users = User.query.all()
-        return render_template('base.html', users=users)
+        return render_template('home.html', users=users, title='TwitOff')
 
     @app.route('/reset')
     def reset():
         DB.drop_all()
         DB.create_all()
-        return render_template('base.html')
+        return render_template('base.html', title='TwitOff - Reset')
 
 
     @app.route('/compare', methods=['POST'])
@@ -34,7 +34,7 @@ def create_app():
                                       request.values['tweet_text'])
             # return user1 if prediction else user2
         return render_template('compare.html', 
-                            title='User comparison',
+                            title='TwitOff - Comparison',
                             user_1=user1,
                             user_2=user2,
                             prob_user_1=f'{prediction[0][0]*100:0.0f}',
@@ -53,7 +53,7 @@ def create_app():
         except Exception as e:
             message = f'Error adding {name}: {e}'
             tweets = []
-        return render_template('user.html', title=name, tweets=tweets,
-                            message=message)
+        return render_template('user.html', title='TwitOff - User', tweets=tweets,
+                            message=message, name=name)
 
     return app
